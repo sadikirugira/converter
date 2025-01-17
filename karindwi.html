@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWANDAN TO DOLLARS - RWF to USD Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f1f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: purple;
+            width: 40%;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            background-color: #28a747;
+            color: green;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .btn:hover {
+            background-color: #297;
+        }
+        #result, #result2 {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 20px;
+            background: #222;
+            color: green;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>RWANDA TO DOLLARS - Rwandan Franc to US Dollar Converter</h1>
+        <p>Enter the amount in Rwandan Francs (RWF) to convert into US Dollars (USD)</p>
+        <input type="number" id="rwf" placeholder="Enter amount in RWF">
+        <button class="btn" onclick="convertToUSD()">Convert</button>
+        <p id="result"></p>
+    </div>
+
+    <div class="container">
+        <h1>RWANDA TO DOLLARS - US Dollar to Rwandan Franc Converter</h1>
+        <p>Enter the amount in USD($) to convert into Rwandan Franc (RWF)</p>
+        <input type="number" id="usd" placeholder="Enter amount in USD">
+        <button class="btn" onclick="convertToRWF()">Convert</button>
+        <p id="result2"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rugira Sadiki. All generation converter.</p>
+    </footer>
+
+    <script>
+        const exchangeRate = 1350.14; // Example rate, update as needed
+
+        function convertToUSD() {
+            const rwf = document.getElementById("rwf").value;
+            if (rwf === "" || rwf <= 0) {
+                document.getElementById("result").innerHTML = "Please enter a valid amount.";
+                return;
+            }
+            const usd = rwf / exchangeRate;
+            document.getElementById("result").innerHTML = `Converted Amount: $${usd.toFixed(2)} USD`;
+        }
+
+        function convertToRWF() {
+            const usd = document.getElementById("usd").value;
+            if (usd === "" || usd <= 0) {
+                document.getElementById("result2").innerHTML = "Please enter a valid amount.";
+                return;
+            }
+            const rwf = usd * exchangeRate;
+            document.getElementById("result2").innerHTML = `Converted Amount: ${rwf.toFixed(2)} RWF`;
+        }
+    </script>
+
+</body>
+</html>
